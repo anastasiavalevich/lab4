@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: isis-4
+spec:
+  selector:
+    matchLabels:
+      app: isis-4
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: isis-4
+    spec:
+      containers:
+        - name: lab4
+          image: anastasiavalevich/lab4
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "1000Mi"
+            limits:
+              cpu: "100m"
+              memory: "2000Mi"
